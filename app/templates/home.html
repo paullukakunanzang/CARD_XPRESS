@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block title %} home {% endblock %}
+
+{% block body %} 
+{% with messages = get_flashed_messages(with_categories= true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+{% endwith %}
+
+<header>
+    <div class="navbar">
+        <a class="nav-item nav-link" href="{{ url_for('home') }}">HOME</a>
+        <a class="nav-item nav-link" href="#">ABOUT</a>
+        <a class="nav-item nav-link" href="{{ url_for('logout') }}">LOGOUT</a>
+    </div>
+</header>
+<div class="jumbotron p-3">
+    <div class="well text-center">
+        <h1>TALK IS CHEAP</h1> <br>
+        <h1>SHOW YOUR CODE</h1>
+    </div>
+
+</div>
+
+{% endblock %}

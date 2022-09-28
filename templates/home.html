@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block title %} home {% endblock %}
+
+{% block body %} 
+
+{% with messages = get_flashed_messages(with_categories= true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+{% endwith %}
+
+<div class="jumbotron p-3">
+    <div class="well text-center">
+        <h1>Welcome to our World</h1>
+    </div>
+
+</div>
+
+{% endblock %}
